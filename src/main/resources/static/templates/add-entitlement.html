@@ -1,0 +1,315 @@
+<script src="js/search-panel.js"></script>
+
+<ng-controller="addEntitlementCtrl"> 
+
+<div class="sticky-footer-layout desktop-menu-layout mobile-menu-layout">
+
+	<!-- begin advantage site header -->
+	<header class="site-header">
+		<nav class="navbar navbar-fixed-top">
+			<ul class="nav navbar-nav navbar-left">
+				<li class="desktop-menu-toggle hidden-mobile"><a href="#"
+					data-toggle="desktop-menu" title="Desktop menu">
+						<div class="hidden-closed">Close</div>
+						<div class="hidden-opened"></div>
+				</a></li>
+				<li><a class="horizontal-logo" href="/#/landing"
+					title="Return home">
+						<div class="logo-image" title="Dimension Data"></div>
+						<div class="logo-title">
+							<span style="font-size: 18px !important">advantage</span>
+						</div>
+				</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="hidden-mobile">
+					<!-- Plain text link -->
+					<a href="#">Support</a>
+				</li>
+				<li class="hidden-mobile">
+					<!-- Plain text link -->
+					<a href="#">Contact</a>
+				</li>
+				<li role="separator" class="divider hidden-mobile"></li>
+				<li class="dropdown hidden-mobile"><a href="#"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false" class="dropdown-toggle"> <span
+						class="fa fa-user"></span>{{profile.userName}}<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li role="separator" class="divider"></li>
+						<li><a href="/#/login">Sign out</a></li>
+					</ul></li>
+				<li role="separator" class="divider hidden-mobile"></li>
+				<li class="hidden-mobile">
+					<!-- Begin  Client logo -->
+					<div class="horizontal-logo" ng-if="profile.userType == 'client' ">
+						<a href="login.html"><img src="/img/oracle-logo.gif"
+							alt="Company name" class="hidden-dark" /></a> <img
+							src="/img/oracle-logo.gif" alt="Company name"
+							class="hidden-light" />
+					</div> <!-- End  Client logo -->
+				</li>
+				<li class="mobile-menu-toggle hidden-desktop"
+					data-toggle="mobile-menu" title="Mobile menu">
+					<button type="button" class="navbar-btn btn">
+						<i aria-hidden="true" class="fa fa-bars"></i>
+					</button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<!-- end advantage site header -->
+
+	<!-- begin advantage desktop menu -->
+	<div class="desktop-menu">
+		<div class="content">
+			<nav class="scrollbars scrollbars-light">
+				<ul class="nav" data-accordion-group>
+					<li><a href="/#/home">Dashboard</a></li>
+					<li><a class="next collapsed" data-toggle="collapse">Manage
+							Assets</a>
+						<ul class="collapse in">
+							<li class="active"><a href="/#/manage-asset">Search & Manage</a></li>
+							<li><a href="/#/add-asset">Add New Asset</a></li>
+						</ul></li>
+					<li><a class="next collapsed" data-toggle="collapse">Reports</a>
+						<ul class="collapse">
+							<li><a href="/#/report-overview">Saved Reports</a></li>
+							<li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+						</ul></li>
+					<li><a class="next collapsed" data-toggle="collapse">User
+							Preferences</a>
+						<ul class="collapse">
+							<li><a href="/#/user-pref">Settings</a></li>
+						</ul></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- end advantage desktop menu -->
+
+	<!-- begin advantage page content -->
+
+	<main class="page-wrapper">
+	<div class="container-xl">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="pull-left">
+					<h2 class="main-heading">Add Entitlement</h2>
+					<p>&nbsp;</p>
+				</div>
+				
+				<!-- Record Begin-->
+				<div style="clear: both;" class="col-xs-12">
+					
+															<div class="row">
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label class="required-field">Vendor </label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Vendor" ng-model="vendor">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>Contract Number</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Contract Number"
+																			ng-model="contractNumber">
+																	</div>
+																</div>
+
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label class="required-field">Contract Desc</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Contract Desc"
+																			ng-model="contractDesc">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>Contract Type</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Contract Type"
+																			ng-model="contractType">
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label class="required-field">Entitlement List
+																			Price </label> <input class="form-control" type="text"
+																			placeholder="Enter Entitlement List Price"
+																			ng-model="entitlementListPrice">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>Ent Purch Price</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Entitlement Sell Price"
+																			ng-model="entitlementSellPrice">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>Entitlement Part Number</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Entitlement Part Number"
+																			ng-model="entitlementPartNumber">
+																	</div>
+																</div>
+
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label class="required-field">Entitlement
+																			Description </label> <input class="form-control" type="text"
+																			placeholder="Enter Entitlement Description"
+																			ng-model="entitlementDescription">
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label class="required-field">Start Date</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Start Date" ng-model="startDate">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>End Date</label> <input class="form-control"
+																			type="text" placeholder="Enter End Date"
+																			ng-model="endDate">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>PO Number</label> <input class="form-control"
+																			type="text" placeholder="Enter PO Number"
+																			ng-model="poNumber">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>SO Number</label> <input class="form-control"
+																			type="text" placeholder="Enter SO Number"
+																			ng-model="soNumber">
+																	</div>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>Invoice Number</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Invoice Number"
+																			ng-model="invoiceNumber">
+																	</div>
+																</div>
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label class="required-field">Date Purchased </label>
+																		<input class="form-control" type="text"
+																			placeholder="Enter Date Purchased"
+																			ng-model="datePurchased">
+																	</div>
+																</div>
+																<!-- Hidden from client<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>Vendor PO Number</label> <input
+																			class="form-control" type="text"
+																			placeholder="Enter Vendor PO Number"
+																			ng-model="vendorPONumber">
+																	</div>
+																</div> -->
+																<div class="col-sm-12 col-md-3">
+																	<div class="form-group">
+																		<label>Status</label> <input class="form-control"
+																			type="text" placeholder="Enter Status"
+																			ng-model="contractStatus">
+																	</div>
+																</div>
+															</div>
+					<div class="row">
+											<div class="pull-right">
+												<button type="button" class="btn btn-primary">
+													<span>Save Entitlement</span>
+												</button>
+												<button type="button" class="btn btn-secondary">
+													<span>Clear</span>
+												</button>
+											</div>
+					</div>
+				</div>
+				<!-- Record Ends -->
+			</div>
+			
+		</div>
+	</div>
+	<!-- Container-xl Ends -->
+	</main>
+
+	<!-- end advantage page content -->
+
+	<!-- begin advantage footer -->
+	<footer class="site-footer">
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="footer-copyright">&copy; Copyright 2018. Dimension
+					Data. All Rights Reserved.</p>
+				<ul class="list-inline footer-links">
+					<li><a
+						href="http://www.dimensiondata.com/Global/Policies/Pages/Privacy-Policy.aspx"
+						target="_blank">Privacy</a></li>
+					<li><a
+						href="http://www.dimensiondata.com/Global/Policies/Pages/Terms-and-Conditions.aspx"
+						target="_blank">Terms of use</a></li>
+					<li><a
+						href="http://www.dimensiondata.com/Global/Policies/Pages/Dimension-Data-Cookie-Policy.aspx"
+						target="_blank">Cookie policy</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- end advantage footer -->
+
+	<!-- begin advantage mobile menu -->
+	<div class="mobile-menu">
+		<div class="content">
+			<div class="scrollbars scrollbars-light">
+				<nav class="drilldown">
+					<ul class="nav">
+						<li class="menu-header">
+							<div class="horizontal-logo" data-toggle="mobile-menu"
+								title="Close menu">
+								<div class="logo-image" title="Dimension Data"></div>
+								<div class="logo-title">
+									<span>advantage</span>
+								</div>
+							</div>
+						</li>
+						<li><a href="/#/home">Dashboard</a></li>
+						<li class="active"><a href="/#/manage-asset">Search &
+								Manage</a></li>
+								<li><a href="/#/add-asset">Add New Asset</a></li>
+						<li><a href="/#/report-overview">Saved Reports</a></li>
+						<li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+						<li><a href="/#/user-pref">Settings</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<!-- end advantage mobile menu -->
+
+</div>
+
+</ng-controller>
+
+

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="desktop-menu-open" lang="en" ng-app="myApp">
+<head>
+<script> var __basePath = ''; </script>
+<style> html, body { margin: 0; padding: 0; height: 100%; } </style>
+    <script src="https://unpkg.com/ag-grid-enterprise@18.1.1/dist/ag-grid-enterprise.min.js"></script>
+<!-- begin advantage site head -->
+<base href="/">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>DimensionData | advantage</title>
+<!-- meta name="description" content="Description of the page less than 150 characters" --> <!-- meta description-->
+
+	<!-- Begin favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+	<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#72bf44">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<!-- End favicon -->
+	
+	<!-- Begin googleapis -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i">
+  	<!-- End googleapis -->
+  	
+<!-- BEGIN COMMENTED -->
+<!-- COMMENTED by JAS	<script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->	
+<!-- COMMENTED by JAS 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
+<!-- COMMENTED by JAS	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->	
+<!-- COMMENTED by JAS	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+<!-- COMMENTED by JAS	<link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" /> -->
+<!-- COMMENTED by JAS	<script data-require="bootstrap@*" data-semver="3.2.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+<!-- COMMENTED by JAS	<script src="bower_components/google-analytics/analytics.js"></script> -->
+<!-- COMMENTED by JAS	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script> -->
+<!-- COMMENTED by JAS 	<link rel="manifest" href="manifest.json"> -->
+<!-- END COMMENTED -->
+
+	<meta name="theme-color" content="#ffffff">
+	<style type="text/css">
+	  .page-wrapper {padding-top:40px !important}
+		.demo-display {
+			padding: 0 !important;
+		}
+		
+		.md-cal-display .md-desc {
+			padding-top: 3em;
+		}
+		
+		.md-hidden {
+			display: none !important;
+		}
+	</style>
+	
+	<!-- Begin Bower -->
+	<link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
+	<!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="bower_components/moment/moment-with-locales.js"></script>
+	<script src="bower_components/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-ui-clock/dist/angular-clock.min.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<!-- <script src="js/plugins/bootstrap-tour-standalone.min.js"></script> -->
+	<script src="js/plugins/sweetalert.min.js"></script>
+	
+	<!-- adapt-strap -->
+	<script src="bower_components/adapt-strap/dist/adapt-strap.min.js"></script>
+	<script src="bower_components/adapt-strap/dist/adapt-strap.tpl.min.js"></script>
+	<script src="bower_components/chart.js/dist/Chart.min.js"></script>
+	<!-- End Bower -->
+	
+	<!-- Begin Common CSS -->
+	<link href='css/minimal-layout.css' rel='stylesheet'>
+	<link href='css/dd-adv-global.css' rel='stylesheet'>
+	<link href='css/dashboard.css' rel='stylesheet'>
+	<link href='css/equalize.css' rel='stylesheet'>
+	<link href='css/landing-page.css' rel='stylesheet'>
+	<link href='css/login-register.css' rel='stylesheet'>
+	<link href='css/registration-process.css' rel='stylesheet'>
+	<link href='css/ngDialog.css' rel='stylesheet'>
+	<link href='css/ngDialog-theme-default.css' rel='stylesheet'>
+	<!-- End Common CSS  -->
+	
+	<!-- Begin cloudflare -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.11.2/select.js"></script>
+	<!-- End cloudflare -->
+	
+	<!-- Begin Custom and plugin javascript -->
+	<script src="js/dd.basecoat.min.js"></script>
+ 	<script src="skin/inspinia/js/script.js"></script>
+	<script src="js/plugins/pace/pace.min.js"></script>
+	<script src="js/plugins/angular.chart.js"></script>
+	<script src="js/plugins/jasny.js"></script>
+	<script src="js/plugins/underscore.js"></script>
+	<script src="css/TimeCircles.js"></script>
+	<script src="js/fullcalendar.js"></script>
+	<script src="js/ngBootbox.js"></script>
+	<script src="js/plugins/ngDialog.js"></script>
+	<script src="js/plugins/sortable.min.js"></script>
+	<script src="js/plugins/ng-table.min.js"></script>
+	<script src="js/plugins/draggable/draggable.js"></script>
+	<script src="js/plugins/ui-bootstrap-tpls.min.js"></script>
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script defer src="js/outdated-browser.min.js"></script>
+	
+	<!-- End Custom and plugin javascript -->
+	
+	
+<!-- 	 <script src="https://unpkg.com/ag-grid-enterprise@18.1.1/dist/ag-grid-enterprise.min.js"></script> 
+ -->
+	<!--  Begin Common Scripts  -->
+	<script src="js/app.js"></script> 	
+	<script src="js/main.js"></script>
+	<script src="js/assetmanage.js"></script>
+	<script src="js/reportadmin.js"></script>
+	<script src="js/reportoverview.js"></script>
+	<script src="js/userpref.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/sellerCtrl.js"></script>
+	<script src="js/redirectCtrl.js"></script>
+	<script src="js/common/directives.js"></script>
+	<script src="js/common/factory.js"></script>
+	<script src="js/common/socket.js"></script>
+	<script src="js/common/filter.js"></script>
+	<!--  End Common Scripts  -->
+	
+	<script>
+      // theme loader script (not part of the example)
+      if (localStorage.getItem('theme') == 'dark') {
+        var stylesheets = document.querySelectorAll('link[href$=".css"]');
+        for (var i = 0; i < stylesheets.length; i++) {
+          var tag = stylesheets[i];
+          var href = tag.getAttribute('href').replace(/(-dark)?(\.min)?\.css/i, '-dark$2.css');
+          document.write('<link rel="stylesheet" href="' + href + '">');
+          tag.parentElement.removeChild(tag);
+        };
+      }
+      window.addEventListener('storage', function (e) {
+        if (e.key == 'theme') {
+          var stylesheets = document.querySelectorAll('link[href$=".css"]');
+          for (var i = 0; i < stylesheets.length; i++) {
+            var tag = stylesheets[i];
+            var href = tag.getAttribute('href').replace('-dark', '');
+            if (e.newValue == 'dark') {
+              href = href.replace(/(-dark)?(\.min)?\.css/i, '-dark$2.css');
+            }
+            var newTag = document.createElement('link');
+            newTag.setAttribute('rel', 'stylesheet');
+            newTag.setAttribute('href', href);
+            tag.parentElement.appendChild(newTag);
+            window.setTimeout(function (tag) {
+              tag.parentElement.removeChild(tag);
+            }, 500, tag);
+          };
+        }
+      });
+    </script>
+<!-- end advantage site head -->
+</head>    
+<body ng-controller="mainCtrl" ng-cloak style="width: 100%">
+	<div id="myGrid" style="height: 100%;" class="ag-theme-balham"></div>
+    <script src="main2.js"></script>
+	<div ng-view class="content"></div>
+</body>
+</html>
+
+
+		
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	

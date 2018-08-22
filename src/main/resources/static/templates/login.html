@@ -1,0 +1,114 @@
+<ng-controller="loginCtrl">
+	
+<div class="sticky-footer-layout desktop-menu-layout mobile-menu-layout">
+
+<!-- begin advantage site header -->
+		<ng-include src="'templates/components/top-header.html'"></ng-include>
+<!-- end advantage site header -->
+
+	<!-- begin advantage desktop menu -->
+		<div class="desktop-menu">
+			<div class="desktop-menu">
+				<div class="content"><p style="padding:10px; color:#C7CCD1">Please Login to access the menu</p></div>
+			</div>
+		</div>
+	<!-- begin advantage desktop menu -->
+	
+<!-- begin advantage page content -->	
+		<main class="page-wrapper">
+				<div class="container-lg">
+					<div class="row">
+						<div class="col-xs-12">
+							<h1 class="main-heading bottom-gutter">Advantage</h1>
+							<div class="nav-tabs-responsive scrollbars">
+								<ul class="nav nav-tabs nav-justified progress-steps" data-progress-steps="linear" data-registration-steps>
+									<li class="active">
+										<a data-toggle="tab" href="#step1">
+											<span class="progress-step">Login to your account</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="tab-content">
+								<div id="step1" class="tab-pane fade in active">
+									<div class="row row-equalize equalize-md-up">
+
+										<div class="col-xs-12 col-md-4 col-lg-5 col-xl-6 no-padding">
+											<div class="image-pane equalize icon-network">
+												<img src="img/dd-network.svg">
+											</div>
+										</div>
+
+										<div class="col-xs-12 col-md-8 col-lg-7 col-xl-6 no-padding">
+											<div class="content-pane equalize">
+												<!--  <form  role="form" action="/doLogin"  method="post" data-validation-example> -->
+												<form data-validation-example>
+													<div class="row no-gutter">
+														<div class="col-xs-12 form-area">
+		
+															<h3>Sign In</h3>
+															<div class="form-group has-icon">
+																<label class="control-label" for="registerUsername">Username</label>
+																<input type="text" placeholder="Enter your email address" class="form-control" ng-model="userName" id="username" name="username" required>
+  																<span class="form-control-feedback fa-user"></span>
+															</div>
+		
+															<div class="form-group has-icon has-password-toggle">
+																<label class="control-label" for="registerPassword">Password
+																<span class="info"><span>
+																</label>
+																<div class="control-wrapper">
+																	<!-- use this .control-wrapper when .control-label is long enough to wrap onto multiple lines -->
+																	<input type="password" ng-model="password" placeholder="Enter your password" class="form-control" id="password" name="password" required> 
+																	<span class="password-toggle"></span> 
+																	<span class="form-control-feedback fa-lock"></span>
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12">
+															<button type="submit" class="btn btn-block btn-primary bottom-gutter" ng-click="loginAPICall()">Continue</button>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+<!-- end advantage page content -->	
+
+		<!-- begin advantage footer -->
+				<ng-include src="'templates/components/footer.html'"></ng-include>
+				<!-- end advantage footer -->
+						
+				<!-- begin advantage mobile menu -->
+				<div class="mobile-menu">
+				<div class="content">
+					<div class="scrollbars scrollbars-light">
+						<nav class="drilldown">
+							<ul class="nav">
+								<li class="menu-header">
+									<div class="horizontal-logo" data-toggle="mobile-menu"
+										title="Close menu">
+										<div class="logo-image" title="Dimension Data"></div>
+										<div class="logo-title">
+											<span>advantage</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<p style="padding:10px; color:#C7CCD1">Please Login to access the menu</p>
+						</nav>
+					</div>
+				</div>
+			</div>
+		
+				<!-- end advantage mobile menu -->	
+</div>
+</ng-controller>
+
+

@@ -1,0 +1,227 @@
+<ng-controller="userPrefCtrl">
+
+<div class="sticky-footer-layout desktop-menu-layout mobile-menu-layout">
+
+	<!-- begin advantage site header -->
+	<ng-include src="'templates/components/top-header.html'"></ng-include>
+	<!-- end advantage site header -->
+
+	<!-- begin advantage desktop menu -->
+	<div class="desktop-menu">
+		<div class="content">
+			<nav class="scrollbars scrollbars-light">
+				<ul class="nav" data-accordion-group>
+					<li><a href="/#/home">Dashboard</a></li>
+					<li><a class="next collapsed" data-toggle="collapse">Manage
+							Assets</a>
+						<ul class="collapse">
+							<li><a href="/#/manage-asset">Search & Manage</a></li>
+							<li><a href="/#/add-asset">Add New Asset</a></li>
+						</ul></li>
+					<li><a class="next collapsed" data-toggle="collapse">Reports</a>
+						<ul class="collapse">
+							<li><a href="/#/report-overview">Saved Reports</a></li>
+							<li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+						</ul></li>
+					<li><a class="next collapsed" data-toggle="collapse">User
+							Preferences</a>
+						<ul class="collapse in">
+							<li class="active"><a href="/#/user-pref">Settings</a></li>
+						</ul></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- end advantage desktop menu -->
+
+	<!-- begin advantage page content -->
+
+	<main class="page-wrapper">
+	<div class="container-lg">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 class="main-heading">User Preference & Settings</h2>
+				<nav class="panel-group" id="panelGroup1">
+					<div class="panel panel-indented">
+						<div class="panel-heading collapsed" data-toggle="collapse"
+							data-parent="#accordion" data-target="#panelGroup1Panel1">
+							<h3 class="panel-title">User</h3>
+							<img class="panel-icon hidden-dark" src="img/dd-pref.svg"
+								alt="Account status & information Light" /> <img
+								class="panel-icon hidden-light" src="img/dd-pref.svg"
+								alt="Account status & information Dark" />
+						</div>
+						<div id="panelGroup1Panel1" class="panel-collapse collapse">
+							<div class="panel-body">
+								<!--   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+								<ul class="btn-list">
+
+									<li>
+										<div class="ibox-content">
+											<div>
+												<div style="padding: 4px">
+													<div style="float: right;"></div>
+													<div style="padding: 4px;">
+														<b>Report for User Details</b> <span id="rowCount"></span>
+													</div>
+													<div style="clear: both;"></div>
+												</div>
+												<div id="bestHtmlUser"
+													class="ag-theme-fresh ag-basic"></div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="panel panel-indented">
+						<div class="panel-heading collapsed" data-toggle="collapse"
+							data-parent="#accordion" data-target="#panelGroup1Panel4">
+							<h3 class="panel-title">Filter Criteria</h3>
+							<img class="panel-icon hidden-dark" src="img/dd-pref.svg"
+								alt="Account status & information Light" /> <img
+								class="panel-icon hidden-light" src="img/dd-pref.svg"
+								alt="Account status & information Dark" />
+						</div>
+						<div id="panelGroup1Panel4" class="panel-collapse collapse">
+							<div class="panel-body">
+								<!--     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+								<ul class="btn-list">
+									<li>
+										<div class="ibox-content">
+											<div>
+												<div style="padding: 4px">
+													<div style="float: right;"></div>
+													<div style="padding: 4px;">
+														<b>Report for Filter Criteria</b> <span id="rowCount"></span>
+													</div>
+													<div style="clear: both;"></div>
+												</div>
+												<div id="bestHtml5Grid"
+													class="ag-theme-fresh ag-basic"></div>
+											</div>
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="panel panel-indented">
+						<div class="panel-heading collapsed" data-toggle="collapse"
+							data-parent="#accordion" data-target="#panelGroup1Panel2">
+							<h3 class="panel-title">White Labeling & Column Sorting</h3>
+							<img class="panel-icon hidden-dark" src="img/dd-account.svg"
+								alt="Personal information & preferences Light" /> <img
+								class="panel-icon hidden-light" src="img/dd-account.svg"
+								alt="Personal information & preferences Dark" />
+						</div>
+						<div id="panelGroup1Panel2" class="panel-collapse collapse">
+							<div class="panel-body">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<ul class="btn-list">
+									<li><a href="#">Test Item</a></li>
+									<li><a href="#">Test Item</a></li>
+									<li><a href="#">Test Item</a></li>
+									<li><a href="#">Test Item</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-indented">
+						<div class="panel-heading collapsed" data-toggle="collapse"
+							data-parent="#accordion" data-target="#panelGroup1Panel3">
+							<h3 class="panel-title">Test</h3>
+							<img class="panel-icon hidden-dark" src="img/dd-settings.svg"
+								alt="Security settings Light" /> <img
+								class="panel-icon hidden-light" src="img/dd-settings.svg"
+								alt="Security settings Dark" />
+						</div>
+						<div id="panelGroup1Panel3" class="panel-collapse collapse">
+							<div class="panel-body">
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<ul class="btn-list">
+									<li><a href="#">Test Item</a></li>
+									<li><a href="#">Test Item</a></li>
+									<li><a href="#">Test Item</a></li>
+									<li><a href="#">Test Item</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+	</main>
+	<!-- end advantage page content -->
+
+	<!-- begin advantage footer -->
+	<ng-include src="'templates/components/footer.html'"></ng-include>
+	<!-- end advantage footer -->
+
+	<!-- begin advantage mobile menu -->
+	<div class="mobile-menu">
+		<div class="content">
+			<div class="scrollbars scrollbars-light">
+				<nav class="drilldown">
+					<ul class="nav">
+						<li class="menu-header">
+							<div class="horizontal-logo" data-toggle="mobile-menu"
+								title="Close menu">
+								<div class="logo-image" title="Dimension Data"></div>
+								<div class="logo-title">
+									<span>advantage</span>
+								</div>
+							</div>
+						</li>
+						<li><a href="/#/home">Dashboard</a></li>
+						<li><a href="/#/manage-asset">Search & Manage</a></li>
+						<li><a href="/#/add-asset">Add New Asset</a></li>
+						<li><a href="/#/report-overview">Saved Reports</a></li>
+						<li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+						<li class="active"><a href="/#/user-pref">Settings</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<!-- end advantage mobile menu -->
+
+</div>
+
+<script>
+         // theme loader script (not part of the example)
+         if (localStorage.getItem('theme') == 'dark') {
+           var stylesheets = document.querySelectorAll('link[href$=".css"]');
+           for (var i = 0; i < stylesheets.length; i++) {
+             var tag = stylesheets[i];
+             var href = tag.getAttribute('href').replace(/(-dark)?(\.min)?\.css/i, '-dark$2.css');
+             document.write('<link rel="stylesheet" href="' + href + '">');
+             tag.parentElement.removeChild(tag);
+           };
+         }
+         window.addEventListener('storage', function (e) {
+           if (e.key == 'theme') {
+             var stylesheets = document.querySelectorAll('link[href$=".css"]');
+             for (var i = 0; i < stylesheets.length; i++) {
+               var tag = stylesheets[i];
+               var href = tag.getAttribute('href').replace('-dark', '');
+               if (e.newValue == 'dark') {
+                 href = href.replace(/(-dark)?(\.min)?\.css/i, '-dark$2.css');
+               }
+               var newTag = document.createElement('link');
+               newTag.setAttribute('rel', 'stylesheet');
+               newTag.setAttribute('href', href);
+               tag.parentElement.appendChild(newTag);
+               window.setTimeout(function (tag) {
+                 tag.parentElement.removeChild(tag);
+               }, 500, tag);
+             };
+           }
+         });
+</script> </ng-controller>

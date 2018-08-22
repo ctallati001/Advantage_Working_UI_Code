@@ -1,0 +1,352 @@
+<ng-controller="Ctrl">
+
+<script src="/js/ag-grid-enterprise.min.js"></script>
+
+<style>
+.page-wrapper {
+	padding-top: 40px !important
+}
+
+.dropdown.dropdown-scroll .dropdown-menu {
+	max-height: 200px;
+	width: 90px;
+	overflow: auto;
+}
+
+.search-control {
+	padding: 5px 10px;
+}
+
+.ag-paging-page-summary-panel {
+display: none;
+}
+</style>
+
+<div class="sticky-footer-layout desktop-menu-layout mobile-menu-layout">
+
+<!-- begin advantage site header -->
+		<ng-include src="'templates/components/top-header.html'"></ng-include>
+<!-- end advantage site header -->
+
+<!-- begin advantage desktop menu -->
+<div class="desktop-menu">
+<div class="content">
+<nav class="scrollbars scrollbars-light">
+      <ul class="nav" data-accordion-group>
+	          <li class="active"><a href="/#/home">Dashboard</a></li>
+        <li><a class="next collapsed" data-toggle="collapse">Manage Assets</a>
+          <ul class="collapse">
+            <li><a href="/#/manage-asset">Search & Manage</a></li>
+            <li><a href="/#/add-asset">Add New Asset</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">Reports</a>
+          <ul class="collapse">
+            <li><a href="/#/report-overview">Saved Reports</a></li>
+			<li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+          </ul>
+        </li>
+        <li><a class="next collapsed" data-toggle="collapse">User Preferences</a>
+          <ul class="collapse">
+            <li><a href="/#/user-pref">Settings</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+</div>
+</div>	
+<!-- end advantage desktop menu -->
+
+	    <!-- begin advantage page content -->
+		<main class="page-wrapper">
+		<div class="container-xl">
+			<div class="col-xs-12">
+		
+					<div style="margin-bottom:20px">
+						<h2 class="main-heading">Dashboard</h2>
+						<!--<p> Dashboard Message </p>-->
+					</div>
+					
+					<div class="row">
+		
+						<div class="col-sm-12 col-md-3" style="margin-top:30px;font-size: 90%">
+							<h3 class="accent-heading">Status</h3>
+		
+								<div>
+									<input type="checkbox" style="width:20px" class="form-check-input" id="exampleCheck1" ng-model="statusType" ng-click="getRadioDisplay();" /> EOL 
+									<input type="checkbox" style="width:20px" class="form-check-input" id="exampleCheck2" ng-model="statusTypeExp" ng-click="getRadioDisplay();" /> Expired 
+									<br><input type="checkbox" style="width:20px" class="form-check-input" id="exampleCheck3" ng-model="statusTypeDep" /> Exclude Deprecated
+								</div> 
+							<br>
+							<div ng-if="flag">
+								<br>
+										<input type="text" placeholder="Enter From Date"
+											class="form-control" ng-model="formData.fromdate"
+											my-date-picker />
+								<br>
+								<br>
+										<input type="text" placeholder="Enter To Date"
+											class="form-control" ng-model="formData.todate" my-date-picker />
+							</div>
+							<div>
+							<form ng-if="radioDisplay">
+								<span><input type="radio" style="width:20px"
+									name="radioDays" id="radioDays" value="30" ng-value="30"
+									ng-model="radioDays" /> 30 Days</span><br> <span><input type="radio" style="width:20px"
+									name="radioDays" id="radioDays" value="90" ng-value="90"
+									ng-model="radioDays" /> 90 Days</span><br> <span>
+									<input type="radio" style="width:20px"
+									name="radioDays" id="radioDays" value="120" ng-value="120"
+									ng-model="radioDays" /> Specific Date</span><br>
+									<div ng-if="radioDays=='120'">
+									<br> Start Date <br>
+									<input type="date" name="startDate" id="startDate" ng-model="startDate" class="form-control">
+									<br> End Date <br>
+									<input type="date" name="endDate" id="endDate" ng-model="endDate" class="form-control">
+								</div>
+							</form>
+							</div>
+		
+							<form>
+		
+								<div class="form-group">
+									<label for="ajaxSearchMn"> Manufacturer</label> <input
+										type="text" id="ajaxSearchMn" ng-model="searchInputMn"
+										placeholder="" class="form-control"/>
+		
+								</div>
+								<div class="form-group">
+									<label for="ajax">Search For</label> <input type="text" id="ajax"
+										list="json-datalist" ng-model="searchParam"
+										placeholder="e.g. filter" class="form-control">
+									<datalist id="json-datalist">
+									</datalist>
+								</div> 
+								
+								<!-- CK code Begins -->
+								<!-- CK code Ends -->
+		
+								<div ng-if="searchParam.length > 0" class="form-group">
+									<label for="ajaxSearch" ng-init="textSearch = 'input'">
+										Find </label> 
+										<textarea rows="3" id="ajaxSearch" ng-model="searchInput"
+										placeholder="" class="form-control"
+										ng-show="textSearch == 'input'"></textarea>
+										<!-- <input type="text" id="ajaxSearch" ng-model="searchInput"
+										placeholder="" class="form-control"
+										ng-show="textSearch == 'input'" /> -->
+		
+		
+									<div ng-show="textSearch =='textarea'" class="form-group" style="margin-bottom:5px">
+										<div>
+											<input class="form-control" type="file" file-model="myFile" />
+											<button ng-click="uploadFile()" style="margin:5px 0px">Upload File (csv)</button>
+										</div>
+									</div>
+									<div><a ng-click="textSearch = 'textarea'"
+										ng-show="textSearch == 'input'" style="cursor: pointer"><u>(+)
+											More</u></a> <a ng-click="textSearch = 'input'"
+										ng-show="textSearch =='textarea'" style="cursor: pointer"><u>(-)Less</u></a></div>
+									
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-12 col-md-9">
+							<div>
+								<img src="img/world-map.png"
+									class="top-gutter bottom-gutter hidden-dark" alt="Graph Light" />
+								<img src="img/dd-graph-dark.svg"
+									class="top-gutter bottom-gutter hidden-light" alt="Graph Dark" />
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="row">
+								<button type="button" class="btn btn-primary"
+									ng-click="viewAllAssets('all');">
+									<span>View All Assets</span>
+								</button>
+								<button type="button" class="btn btn-primary"
+									ng-click="viewAllAssets('Expired');">
+									<span>View Expiring Assets</span>
+								</button>
+							</div>
+					<div style="clear: both"></div>
+				</div>
+				<span ng-if="showDetails">
+				<div class="col-xs-12">
+						<div class="nav-tabs-responsive scrollbars">
+						<ul class="nav nav-tabs nav-centered" data-footer-tabs>
+						<li class="active"><a data-toggle="tab" href="#tab1">Global</a></li>
+						<li class="disabled"><a data-toggle="tab" href="#tab2">AMER</a></li>
+						<li class="disabled" ><a data-toggle="tab" href="#tab3">APAC</a></li>
+						<li class="disabled"><a data-toggle="tab" href="#tab4">EUR</a></li>
+						<li class="disabled"><a data-toggle="tab" href="#tab5">MEA</a></li>
+						</ul>
+						</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="ibox-content" ng-show="displayGrid=='true'">
+						<div >
+							<div style="padding: 4px">
+									<b>Asset records</b> <span id="rowCount"></span>
+							</div>
+							<div class="tab-content footer-tab-area">
+		
+								<div id="tab1" class="tab-pane fade in active">
+								<label for="ajax"></label>
+								<div id="bestHtml5Grid" class="ag-theme-fresh ag-basic" style="height:600px;margin:10px 0px"></div>
+								</div>
+								<div id="tab2" class="tab-pane fade">
+									<p>Asset Records for AMER</p>
+								</div>
+								<div id="tab3" class="tab-pane fade">
+									<p>Asset Records for APAC</p>
+								</div> 
+								<div id="tab4" class="tab-pane fade">
+									<p>Asset Records for EUR</p>
+								</div>
+								<div id="tab5" class="tab-pane fade">
+									<p>Asset Records for MEA</p>
+								</div>
+							</div>
+		
+							<div class="pull-right">
+								<a class="btn btn-secondary" href="/#/manage-asset">
+									Manage Assets
+								</a>
+								<button type="button" class="btn btn-primary"
+									ng-click="viewAllAssets('all');">
+									<span>Export Assets</span>
+								</button>
+								<button type="button" class="btn btn-primary"
+									ng-click="viewAllAssets('Expired');">
+									<span>Export Asset LifeCycle</span>
+								</button>
+							</div>
+							<div style="clear: both;"></div>
+						</div>
+					</div>
+		
+				</div>
+				
+				</span>
+	</div>
+</main>
+		
+		
+		<!-- end advantage page content -->
+
+		<!-- begin advantage footer -->
+		<ng-include src="'templates/components/footer.html'"></ng-include>
+		<!-- end advantage footer -->
+				
+		<!-- begin advantage mobile menu -->
+		<div class="mobile-menu">
+		<div class="content">
+			<div class="scrollbars scrollbars-light">
+				<nav class="drilldown">
+					<ul class="nav">
+						<li class="menu-header">
+							<div class="horizontal-logo" data-toggle="mobile-menu"
+								title="Close menu">
+								<div class="logo-image" title="Dimension Data"></div>
+								<div class="logo-title">
+									<span>advantage</span>
+								</div>
+							</div>
+						</li>
+						<li class="active"><a href="/#/home">Dashboard</a></li>
+						<li ><a href="/#/manage-asset">Search & Manage</a></li>
+						<li><a href="/#/add-asset">Add New Asset</a></li>
+						<li><a href="/#/report-overview">Saved Reports</a></li>
+						<li><a href="/#/report-admin">Admin Reports & Templates</a></li>
+						<li><a href="/#/user-pref">Settings</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+		<!-- end advantage mobile menu -->
+
+
+   </div> 
+   
+   <script>
+   $('#dropdown-menu li').on('click', function(){
+	   alert('hi');
+	   console.log($(this).text());
+       console.log($('#datebox').val($(this).text()));
+    });
+   
+   $('#dropdown-menu li a').on('click', function(){
+	   alert('hi a');
+	   console.log($(this).text());
+	    $('#datebox').val($(this).html());
+	});
+	
+    $('.dropdown-menu').find('input').click(function (e) {
+      e.stopPropagation();
+    });
+    
+    ///get the Data from the Filters // 
+	  // Get the <datalist> and <input> elements.
+	     var dataList = document.getElementById('json-datalist');
+	     var input = document.getElementById('ajax');
+
+	     // Create a new XMLHttpRequest.
+	     var request = new XMLHttpRequest();
+
+	     // Handle state changes for the request.
+	     request.onreadystatechange = function(response) {
+	       if (request.readyState === 4) {
+	         if (request.status === 200) {
+	           // Parse the JSON
+	         	var detailsFilters = [];
+	         	var jsonOptionsObj = JSON.parse(request.responseText);
+	         	if (jsonOptionsObj !== undefined) {
+	   			  detailsFilters = Object.keys(jsonOptionsObj['asset-dev'].mappings.doc.properties);
+	   		  }
+	   		 console.log('----array Data'+detailsFilters);
+	           var jsonOptions = detailsFilters;
+	          
+	           var option = document.createElement('option');
+	             option.value = "ContractNumber"
+	             dataList.appendChild(option);
+	           // Loop over the JSON array.
+	           jsonOptions.forEach(function(item) {
+	             // Create a new <option> element.
+	             var option = document.createElement('option');
+	             // Set the value using the item in the JSON array.
+	             option.value = item;
+	             // Add the <option> element to the <datalist>.
+	             if (option.value === 'SerialNumber' || option.value === 'PartNum' ) {
+				//$scope.detailsFilters.push(data);
+				 dataList.appendChild(option);
+				 
+			} 
+	            
+	            
+	           });
+	           
+	           // Update the placeholder text.
+	           input.placeholder = "e.g. datalist";
+	         } else {
+	           // An error occured :(
+	           input.placeholder = "Couldn't load datalist options :(";
+	         }
+	       }
+	     };
+
+	     // Update the placeholder text.
+	     input.placeholder = "Loading options...";
+
+	     // Set up and make the request.
+	     request.open('GET', '/elastic/getFilters', true);
+	     request.send();
+
+  </script>
+
+</ng-controller>
